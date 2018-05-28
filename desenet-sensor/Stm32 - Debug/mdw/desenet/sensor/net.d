@@ -14,6 +14,8 @@ mdw/desenet/sensor/net.o: \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/sensor/networkentity.h \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/networkinterfacedriver.h \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/itimeslotmanager.h \
+ /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/mpdu.h \
+ /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/frame.h \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/platform/olimex-stm32f103-stk/mcu/stm32f1xx/hal/timeslotmanager.h \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/itimeslotmanager.h \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/xf/xfreactive.h \
@@ -53,6 +55,10 @@ mdw/desenet/sensor/net.o: \
 /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/networkinterfacedriver.h:
 
 /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/itimeslotmanager.h:
+
+/home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/mpdu.h:
+
+/home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/frame.h:
 
 /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/platform/olimex-stm32f103-stk/mcu/stm32f1xx/hal/timeslotmanager.h:
 

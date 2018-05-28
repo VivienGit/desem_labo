@@ -14,6 +14,8 @@ mdw/desenet/sensor/abstractapplication.o: \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-sensor/platform/olimex-stm32f103-stk/platform-config.h \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/networkinterfacedriver.h \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/itimeslotmanager.h \
+ /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/mpdu.h \
+ /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/frame.h \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/platform/olimex-stm32f103-stk/mcu/stm32f1xx/hal/timeslotmanager.h \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/itimeslotmanager.h \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/xf/xfreactive.h \
@@ -25,7 +27,8 @@ mdw/desenet/sensor/abstractapplication.o: \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/xf/xfeventstatus.h \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/xf/xftimeout.h \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/xf/xfnulltransition.h \
- /home/desem/Desktop/desenet-work/desenet-common/mdw/desenet/sensor/abstractapplication.h
+ /home/desem/Desktop/desenet-work/desenet-common/mdw/desenet/sensor/abstractapplication.h \
+ /home/desem/Desktop/desenet-work/desenet-common/mdw/desenet/sensor/networkentity.h
 
 /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/sensor/net.h:
 
@@ -55,6 +58,10 @@ mdw/desenet/sensor/abstractapplication.o: \
 
 /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/itimeslotmanager.h:
 
+/home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/mpdu.h:
+
+/home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/frame.h:
+
 /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/platform/olimex-stm32f103-stk/mcu/stm32f1xx/hal/timeslotmanager.h:
 
 /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/itimeslotmanager.h:
@@ -78,3 +85,5 @@ mdw/desenet/sensor/abstractapplication.o: \
 /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/xf/xfnulltransition.h:
 
 /home/desem/Desktop/desenet-work/desenet-common/mdw/desenet/sensor/abstractapplication.h:
+
+/home/desem/Desktop/desenet-work/desenet-common/mdw/desenet/sensor/networkentity.h:

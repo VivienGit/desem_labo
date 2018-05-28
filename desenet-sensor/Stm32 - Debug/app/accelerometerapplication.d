@@ -14,6 +14,8 @@ app/accelerometerapplication.o: ../app/accelerometerapplication.cpp \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/sensor/networkentity.h \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/networkinterfacedriver.h \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/itimeslotmanager.h \
+ /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/mpdu.h \
+ /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/frame.h \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/platform/olimex-stm32f103-stk/mcu/stm32f1xx/hal/timeslotmanager.h \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/itimeslotmanager.h \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/xf/xfreactive.h \
@@ -62,6 +64,10 @@ app/accelerometerapplication.o: ../app/accelerometerapplication.cpp \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/platform/olimex-stm32f103-stk/mcu/stm32f1xx/system/include/stm32f1-stdperiph/misc.h \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/clockwork/clockwork.h \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/clockwork/ttime.h \
+ /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/platform/olimex-stm32f103-stk/board/joystick.h \
+ /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/platform/platform-common/board/interfaces/ijoystick.h \
+ /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-sensor/app/joystickapplication.h \
+ /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-sensor/app/../../desenet-common/platform/platform-common/board/interfaces/ijoystickobserver.h \
  /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/xf/xfevent.h \
  ../app/accelerometerapplication.h
 
@@ -94,6 +100,10 @@ app/accelerometerapplication.o: ../app/accelerometerapplication.cpp \
 /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/networkinterfacedriver.h:
 
 /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/itimeslotmanager.h:
+
+/home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/mpdu.h:
+
+/home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/desenet/frame.h:
 
 /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/platform/olimex-stm32f103-stk/mcu/stm32f1xx/hal/timeslotmanager.h:
 
@@ -190,6 +200,14 @@ app/accelerometerapplication.o: ../app/accelerometerapplication.cpp \
 /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/clockwork/clockwork.h:
 
 /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/mdw/clockwork/ttime.h:
+
+/home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/platform/olimex-stm32f103-stk/board/joystick.h:
+
+/home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/platform/platform-common/board/interfaces/ijoystick.h:
+
+/home/desem/Desktop/desenet-work/desenet-sensor/../desenet-sensor/app/joystickapplication.h:
+
+/home/desem/Desktop/desenet-work/desenet-sensor/../desenet-sensor/app/../../desenet-common/platform/platform-common/board/interfaces/ijoystickobserver.h:
 
 /home/desem/Desktop/desenet-work/desenet-sensor/../desenet-common/xf/xfevent.h:
 

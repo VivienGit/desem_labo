@@ -77,12 +77,22 @@ public :
 	virtual void onTimeSlotSignal(const ITimeSlotManager & timeSlotManager, const ITimeSlotManager::SIG & signal);
 	MPDU mpdu;
 private:
+	// Callback method of abstract application
+	// Registers the application at the DESENET stack in order to get synchronized.
 	void svSyncRequest(AbstractApplication* callApp);
+
+	// Callback method of abstract application
+	// Using this method an application can ask to publish sampled values for the given group.
+	// Return True on success, false if there is already another application publishing for that group.
 	bool svPublishRequest(AbstractApplication* callApp, SvGroup group);
-	void evPublishRequest(EvId id,SharedByteBuffer & evData);						///< Eventapplication use this to register their event
-	ApplicationSyncList appList;
-	ApplicationPublishersArray groupArray;
-	EventElementList eventList;
+
+	// Callback method of abstract application
+	// Publishes the given event
+	void evPublishRequest(EvId id,SharedByteBuffer & evData);
+
+	ApplicationSyncList appList;				// List of application registered
+	ApplicationPublishersArray groupArray;		// List of group registered
+	EventElementList eventList;					// List of event erceived
 };
 
 } // sensor

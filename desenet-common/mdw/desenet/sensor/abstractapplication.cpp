@@ -4,20 +4,13 @@
 
 using desenet::sensor::AbstractApplication;
 
-// TODO: Uncomment for students.
-//#error READ THE COMMENT HERE!
-/*********************************************************************************************************
-* TODO: Implement the protected methods of the AbstractApplication class here. From these you have to    *
-* call the different methods on your DESENET Controller Entity implementation...                         *
-*********************************************************************************************************/
-
-// Default implementations.
-
+// Registers the application at the DESENET stack in order to get synchronized.
 void AbstractApplication::svSyncRequest()
 {
 	NetworkEntity::instance().svSyncRequest(this);
 }
 
+// Using this method an application can ask to publish sampled values for the given group.
 bool AbstractApplication::svPublishRequest(SvGroup group)
 {
 	bool added = true;
@@ -25,14 +18,14 @@ bool AbstractApplication::svPublishRequest(SvGroup group)
 	return added;
 }
 
-// No need to touch this method, it is for the joystick
+// Publishes the given event
 void AbstractApplication::evPublishRequest(EvId id, SharedByteBuffer & evData)
 {
 	NetworkEntity::instance().evPublishRequest(id, evData);
 }
 
 /**
- * Default callback method for syncs
+ * Default callback method for Sync
  */
 void AbstractApplication::svSyncIndication(desenet::NetworkTime)
 {

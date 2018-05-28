@@ -3,6 +3,7 @@
 <stringAttribute key="bad_container_name" value="/desenet-sensor/laun"/>
 <booleanAttribute key="ilg.gnuarmeclipse.debug.gdbjtag.openocd.doConnectToRunning" value="false"/>
 <booleanAttribute key="ilg.gnuarmeclipse.debug.gdbjtag.openocd.doContinue" value="true"/>
+<booleanAttribute key="ilg.gnuarmeclipse.debug.gdbjtag.openocd.doDebugInRam" value="false"/>
 <booleanAttribute key="ilg.gnuarmeclipse.debug.gdbjtag.openocd.doFirstReset" value="true"/>
 <booleanAttribute key="ilg.gnuarmeclipse.debug.gdbjtag.openocd.doGdbServerAllocateConsole" value="true"/>
 <booleanAttribute key="ilg.gnuarmeclipse.debug.gdbjtag.openocd.doGdbServerAllocateTelnetConsole" value="false"/>

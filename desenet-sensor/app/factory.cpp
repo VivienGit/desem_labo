@@ -67,19 +67,11 @@ void Factory::buildApplication()
 
 	// Initialize applications
 	accelerometerApplication().initialize();
+
+	///<VKR Initialize relations for the Joystick
+	joystickApplication().initializeRelations(& Joystick::instance());
+	///<VKR Initialize the Joystick (Need to be called after initializeRelations())
 	joystickApplication().initialize();
-
-/*
-	Joystick::instance().initialize();					// Instance Joystick
-	app::JoystickApplication::instance().initialize();
-
-	Joystick::instance().setObserver(& app::JoystickApplication::instance()); // Init Relation
-	app::JoystickApplication::instance().initializeRelations(& Joystick::instance());
-*/
-	//
-	// Initialize relations
-	//
-	joystickApplication().instance().initializeRelations(& Joystick::instance());
 
 	// Draw Title on display
 	display().clear();
@@ -94,6 +86,7 @@ void Factory::buildApplication()
 	clockwork().start();
 	net().start();
 	accelerometerApplication().start();
+	joystickApplication().start();			///< VKR : Start the state machine of the Joystick
 }
 
 #ifdef TC_MESHSIM
@@ -112,6 +105,7 @@ app::AccelerometerApplication & Factory::accelerometerApplication() const
 	return accelerometerApp;
 }
 
+///< VKR : Create an instance of the Joystick
 app::JoystickApplication & Factory::joystickApplication() const
 {
 	static app::JoystickApplication joystickApp;

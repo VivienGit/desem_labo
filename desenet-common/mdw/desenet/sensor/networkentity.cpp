@@ -38,7 +38,7 @@ NetworkEntity::~NetworkEntity()
 
 void NetworkEntity::initialize()
 {
-	// Initialize the element of the app that publish request (to test if the SvGroup is already used)
+	// Initialize the element of the groupArray to null (to test if the SvGroup is already used)
 	for (size_t i = 0; i < 16; i++)
 		groupArray[i] = nullptr;
 }
@@ -74,13 +74,16 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
 	UNUSED(driver);
 	UNUSED(receptionTime);
 	Frame frame = Frame::useBuffer(buffer, length);
+
+	// Test if the frame is a valid one
 	if (frame.isValid())
 	{
-		// Test if it's a beacon frame
+		// Test if it is a beacon frame
 		if (frame.type() == FrameType::Beacon)
 		{
 			// Make the Led flash
 			Factory::instance().ledController().flashLed(0);
+
 			Beacon b(frame);
 			// Launch the timer
 			timeSlotManager().onBeaconReceived(b.slotDuration());
@@ -91,12 +94,12 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
 				// Send reception time to abstractApplication to synch the app
 				(*it)->svSyncIndication(b.networkTime());
 			}
-			SharedByteBuffer theBuffer(7);				// ePDU length on 3 bit
+			SharedByteBuffer theBuffer(7);				// max 7 -> ePDU length on 3 bit
 			SharedByteBuffer::sizeType length;
 			bool isWritten = true;
 			size_t i = 0;
-			// Send the publishIndication
-			while (isWritten && i < 16)
+			// Send the publishIndication the registered group
+			while (isWritten && i < 16)		// if isWritten = false, there is no more space on the frame
 			{
 				if(groupArray[i] != nullptr)
 				{
@@ -113,16 +116,43 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
 				Trace::outln("One event");
 				mpdu.addEvEPDU((*it).id,&(*it).data,(*it).data.length());
 			}
-			eventList.clear();		// Chnage this, verify if it's correctly added and delete the element
+			// Clear the eventList (in this case, event not added are lost)
+			// It is possible to delet only added event (not implemented)
+			eventList.clear();
 		}
 	}
 }
 
+// Callback method of abstract application
+// Registers the application at the DESENET stack in order to get synchronized
 void NetworkEntity::svSyncRequest(AbstractApplication* callApp)
 {
 	appList.push_front(callApp);
 }
 
+// Callback method of abstract application
+// Using this method an application can ask to publish sampled values for the given group.
+bool NetworkEntity::svPublishRequest(AbstractApplication* callApp, SvGroup group)
+{
+	bool added = true;
+	// If the corresponding group in the array is empty, the group is free
+	if(groupArray[group] == nullptr)
+		groupArray[group] = callApp;
+	else
+		added = false;
+	return added;
+}
+
+// Callback method of abstract application
+// Publishes the given event
+void desenet::sensor::NetworkEntity::evPublishRequest(EvId id, SharedByteBuffer & evData)
+{
+	EventElement	eventElement(id, evData);
+	// This time it's a push_back because the events have an appearance order !!!
+	eventList.push_back(eventElement);
+}
+
+// Polymorphism from ITimeSlotManager
 void NetworkEntity::onTimeSlotSignal(const ITimeSlotManager& timeSlotManager, const ITimeSlotManager::SIG & signal)
 {
 	switch(signal)
@@ -137,8 +167,8 @@ void NetworkEntity::onTimeSlotSignal(const ITimeSlotManager& timeSlotManager, co
 	///< Start of our slot.
 	case ITimeSlotManager::OWN_SLOT_START :
 		Trace::outln(mpdu.toString());
-		*_pTransceiver << mpdu;
-		mpdu.clearEPDU();
+		*_pTransceiver << mpdu;					///< Give the frame to the transeiver
+		mpdu.clearEPDU();						///< Set the MPDU frame fields to there default values.
 		break;
 
 	///< End of our slot.
@@ -148,23 +178,4 @@ void NetworkEntity::onTimeSlotSignal(const ITimeSlotManager& timeSlotManager, co
 	default  :
 		break;
 	}
-}
-
-bool NetworkEntity::svPublishRequest(AbstractApplication* callApp, SvGroup group)
-{
-	bool added = true;
-	// If the corresponding group in the array is empty, the group is free
-	if(groupArray[group] == nullptr)
-		groupArray[group] = callApp;
-	else
-		added = false;
-	return added;
-}
-
-// Add event to the list of that
-void desenet::sensor::NetworkEntity::evPublishRequest(EvId id, SharedByteBuffer & evData)
-{
-	EventElement	eventElement(id, evData);
-	// This time it's a push_back because the events have an appearance order !!!
-	eventList.push_back(eventElement);
 }
