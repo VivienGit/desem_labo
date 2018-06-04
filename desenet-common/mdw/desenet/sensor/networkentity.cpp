@@ -110,14 +110,18 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
 				}
 				i++;
 			}
-			// Write all event ePDU
-			for(EventElementList::iterator it = eventList.begin(); it != eventList.end(); it++)
+			// Write event ePDU
+			EventElementList::iterator it = eventList.begin();
+			while ((mpdu.addEvEPDU((*it).id,&(*it).data,(*it).data.length())) && (it != eventList.end()))
+				it++;
+/*			for(EventElementList::iterator it = eventList.begin(); it != eventList.end(); it++)
 			{
 				Trace::outln("One event");
 				mpdu.addEvEPDU((*it).id,&(*it).data,(*it).data.length());
-			}
+			}*/
+
 			// Clear the eventList (in this case, event not added are lost)
-			// It is possible to delet only added event (not implemented)
+			// It is possible to delete only added event (not implemented)
 			eventList.clear();
 		}
 	}

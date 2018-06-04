@@ -92,7 +92,7 @@ private:
 
 	ApplicationSyncList appList;				// List of application registered
 	ApplicationPublishersArray groupArray;		// List of group registered
-	EventElementList eventList;					// List of event erceived
+	EventElementList eventList;					// List of event received
 };
 
 } // sensor

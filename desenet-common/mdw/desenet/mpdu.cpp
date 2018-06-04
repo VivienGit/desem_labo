@@ -101,7 +101,7 @@ bool desenet::MPDU::addEvEPDU(EvId evId, SharedByteBuffer* theBuffer, uint8_t le
 		EV_EPDU_HEADER header;
 
 		// Is there enough space ?
-		if(length <= (32 - epduOffset))			// epduOffset begin at 2 (FT/SID and ePDUcount)
+		if(length < (32 - epduOffset))			// epduOffset begin at 2 (FT/SID and ePDUcount) 	// 32 byte limit comes from Nrf24 transceiver
 		{
 			// Increment the number of ePDUs
 			setNbEPDU(nbEPDU() + 1);
